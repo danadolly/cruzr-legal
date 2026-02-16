@@ -1,66 +1,236 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Cruzr — Delete Account</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Your Account - Cruzr LLC</title>
     <style>
-      :root { --text:#111; --muted:#555; --card:#fafafa; --border:#e8e8e8; }
-      body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-             margin: 0; color: var(--text); background: #fff; }
-      .wrap { max-width: 860px; margin: 0 auto; padding: 28px 18px 48px; }
-      h1 { font-size: 28px; margin: 0 0 8px; }
-      .sub { color: var(--muted); margin: 0 0 18px; }
-      .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; margin: 16px 0; }
-      h2 { font-size: 18px; margin: 0 0 8px; }
-      p, li { line-height: 1.45; }
-      code { background: #fff; border: 1px solid var(--border); padding: 2px 6px; border-radius: 8px; }
-      a { color: #0b57d0; }
-      .small { font-size: 13px; color: var(--muted); }
-      .footer { margin-top: 22px; font-size: 13px; color: var(--muted); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #FF6B6B 0%, #E63946 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .header .back-link:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .content {
+            padding: 50px;
+        }
+        
+        .content h2 {
+            color: #FF6B6B;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .content ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .content li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        
+        .content strong {
+            color: #FF6B6B;
+            font-weight: 600;
+        }
+        
+        .content a {
+            color: #FF6B6B;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .content a:hover {
+            text-decoration: underline;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #FF6B6B;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        
+        .warning-box h3 {
+            color: #E63946;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #FF6B6B;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .footer a {
+            color: #FF6B6B;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <div class="wrap">
-      <h1>Cruzr — Delete Account</h1>
-      <p class="sub">
-        This page explains how to delete your Cruzr account and associated data.
-      </p>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🗑️ Delete Your Account</h1>
+            <p>Permanently remove your Cruzr account and data</p>
+            <a href="index.html" class="back-link">← Back to Legal Documents</a>
+        </div>
+        
+        <div class="content">
+            <div class="warning-box">
+                <h3>⚠️ Important Notice</h3>
+                <p>Deleting your account is <strong>permanent and cannot be undone</strong>. All your profile information, matches, messages, and photos will be deleted.</p>
+            </div>
 
-      <div class="card">
-        <h2>Delete your account inside the app (recommended)</h2>
-        <ol>
-          <li>Open <strong>Cruzr</strong></li>
-          <li>Go to <strong>Me</strong> → <strong>Settings</strong></li>
-          <li>Select <strong>Delete Account</strong> and confirm</li>
-        </ol>
-        <p class="small">
-          If deletion requires re-authentication, sign out and sign back in, then try again.
-        </p>
-      </div>
+            <h2>Delete your account inside the app (recommended)</h2>
+            <ol>
+                <li>Open the <strong>Cruzr</strong> app</li>
+                <li>Go to <strong>Me</strong> → <strong>Settings</strong></li>
+                <li>Scroll down and select <strong>Delete Account</strong></li>
+                <li>Confirm your decision</li>
+            </ol>
+            
+            <div class="info-box">
+                <p><strong>Note:</strong> If deletion requires re-authentication, sign out and sign back in, then try the deletion process again.</p>
+            </div>
 
-      <div class="card">
-        <h2>Delete your account if you can’t access the app</h2>
-        <p>
-          Email us from the email address associated with your Cruzr account:
-          <a href="mailto:cruzrapp@outlook.com?subject=Cruzr%20Account%20Deletion%20Request">cruzrapp@outlook.com</a>
-        </p>
-        <p class="small">
-          Subject line suggestion: <code>Cruzr Account Deletion Request</code>
-        </p>
-      </div>
+            <h2>Delete your account if you can't access the app</h2>
+            <p>If you're unable to access the Cruzr app, you can request account deletion by email:</p>
+            
+            <ol>
+                <li>Send an email from the email address associated with your Cruzr account to: <a href="/cdn-cgi/l/email-protection#9cffeee9e6eefdececdcf3e9e8f0f3f3f7b2fff3f1a3efe9fef6f9ffe8a1dfeee9e6eeb9aeacddfffff3e9f2e8b9aeacd8f9f0f9e8f5f3f2b9aeaccef9ede9f9efe8"><span class="__cf_email__" data-cfemail="771405020d05160707371802031b18181c5914181a">[email&#160;protected]</span></a></li>
+                <li>Use the subject line: <strong>"Cruzr Account Deletion Request"</strong></li>
+                <li>Include your full name and the email address used for your account</li>
+                <li>We will verify your identity and process your deletion request</li>
+            </ol>
 
-      <div class="card">
-        <h2>Deletion timeline & retention</h2>
-        <ul>
-          <li>We aim to delete or de-identify profile information within <strong>30 days</strong> of your deletion request.</li>
-          <li>Some information may be retained longer where needed for safety, fraud prevention, dispute resolution, or legal compliance (for example, records of reports/abuse).</li>
-        </ul>
-      </div>
+            <h2>What happens after deletion?</h2>
+            <p>Once you delete your account:</p>
+            <ul>
+                <li><strong>Immediate:</strong> Your profile will be hidden from other users immediately</li>
+                <li><strong>Within 90 days:</strong> We will delete or de-identify your profile information, photos, matches, and messages</li>
+                <li><strong>Exceptions:</strong> Some information may be retained longer where needed for:
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Safety and fraud prevention</li>
+                        <li>Dispute resolution</li>
+                        <li>Legal compliance and investigations</li>
+                        <li>Records of reports or Terms of Service violations</li>
+                    </ul>
+                </li>
+            </ul>
 
-      <div class="footer">
-        Support: <a href="mailto:cruzrapp@outlook.com">cruzrapp@outlook.com</a>
-      </div>
+            <h2>Data retention timeline</h2>
+            <div class="info-box">
+                <ul>
+                    <li><strong>Profile data:</strong> Deleted within 90 days</li>
+                    <li><strong>Photos:</strong> Deleted within 90 days</li>
+                    <li><strong>Messages:</strong> Deleted within 90 days</li>
+                    <li><strong>Payment records:</strong> Retained for 7 years (legal requirement)</li>
+                    <li><strong>Safety/abuse reports:</strong> Retained as needed for safety and legal compliance</li>
+                </ul>
+            </div>
+
+            <h2>Alternative: Temporarily hide your profile</h2>
+            <p>If you're not sure about permanently deleting your account, consider temporarily hiding your profile instead:</p>
+            <ol>
+                <li>Go to <strong>Me</strong> → <strong>Settings</strong></li>
+                <li>Toggle <strong>"Hide My Profile"</strong></li>
+                <li>You can reactivate anytime by toggling it back</li>
+            </ol>
+
+            <h2>Questions or concerns?</h2>
+            <p>If you have questions about account deletion or data retention, contact us at <a href="/cdn-cgi/l/email-protection#83e0f1f6f9f1e2f3f3c3ecf6f7efecece8ade0ecee"><span class="__cf_email__" data-cfemail="7f1c0d0a050d1e0f0f3f100a0b13101014511c1012">[email&#160;protected]</span></a></p>
+            
+            <p style="margin-top: 30px;">For more information about how we handle your data, see our <a href="privacy.html">Privacy Policy</a>.</p>
+        </div>
+        
+        <div class="footer">
+            <p><a href="index.html">← Back to Legal Documents</a></p>
+            <p style="margin-top: 15px;">Need help? Email <a href="/cdn-cgi/l/email-protection#127160676860736262527d67667e7d7d793c717d7f"><span class="__cf_email__" data-cfemail="9cffeee9e6eefdececdcf3e9e8f0f3f3f7b2fff3f1">[email&#160;protected]</span></a></p>
+            <p style="margin-top: 20px; color: #999; font-size: 0.9em;">&copy; 2026 Cruzr LLC. All rights reserved.</p>
+        </div>
     </div>
-  </body>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
 </html>
