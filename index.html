@@ -10,209 +10,876 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #FF6B6B 0%, #E63946 100%);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
             padding: 20px;
         }
-        
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
-        
-        .header {
+
+        header {
             background: linear-gradient(135deg, #FF6B6B 0%, #E63946 100%);
             color: white;
-            padding: 60px 40px;
+            padding: 40px 20px;
             text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.3);
         }
-        
-        .header h1 {
-            font-size: 3em;
-            font-weight: 700;
+
+        header h1 {
+            font-size: 2.5em;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
-        
-        .header p {
+
+        header p {
             font-size: 1.2em;
             opacity: 0.95;
-            margin-bottom: 5px;
         }
-        
-        .header .llc {
+
+        .tagline {
             font-size: 0.9em;
-            opacity: 0.8;
-            font-style: italic;
+            opacity: 0.85;
+            margin-top: 5px;
         }
-        
-        .content {
-            padding: 50px 40px;
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
-        .intro {
-            text-align: center;
-            margin-bottom: 50px;
+
+        .tab-button {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #FF6B6B 0%, #E63946 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(230, 57, 70, 0.2);
         }
-        
-        .intro h2 {
-            color: #FF6B6B;
+
+        .tab-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(230, 57, 70, 0.3);
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #E63946 0%, #c51e2a 100%);
+            box-shadow: 0 6px 15px rgba(230, 57, 70, 0.4);
+        }
+
+        .content-section {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-section h2 {
+            color: #E63946;
             font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #FF6B6B;
+        }
+
+        .content-section h3 {
+            color: #E63946;
+            font-size: 1.5em;
+            margin-top: 30px;
             margin-bottom: 15px;
         }
-        
-        .intro p {
-            color: #666;
-            font-size: 1.1em;
+
+        .content-section p {
+            margin-bottom: 15px;
+            text-align: justify;
         }
-        
-        .documents {
-            display: grid;
-            gap: 20px;
+
+        .content-section ul, .content-section ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
         }
-        
-        .document-card {
-            background: #f8f9fa;
-            border-left: 5px solid #FF6B6B;
-            border-radius: 10px;
+
+        .content-section li {
+            margin-bottom: 10px;
+        }
+
+        .effective-date {
+            background: #fff3f3;
+            padding: 15px;
+            border-left: 4px solid #FF6B6B;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        footer {
+            background: white;
             padding: 30px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        
-        .document-card:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
-            border-left-color: #E63946;
-        }
-        
-        .document-card h3 {
-            color: #FF6B6B;
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .document-card .icon {
-            font-size: 1.8em;
-            margin-right: 15px;
-        }
-        
-        .document-card p {
-            color: #666;
-            line-height: 1.8;
-        }
-        
-        .document-card .date {
-            font-size: 0.9em;
-            color: #999;
-            margin-top: 10px;
-            font-style: italic;
-        }
-        
-        .footer {
-            background: #f8f9fa;
-            padding: 40px;
             text-align: center;
-            border-top: 1px solid #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 30px;
         }
-        
-        .footer p {
-            color: #666;
-            margin-bottom: 10px;
-        }
-        
-        .footer a {
-            color: #FF6B6B;
+
+        footer a {
+            color: #E63946;
             text-decoration: none;
             font-weight: 600;
         }
-        
-        .footer a:hover {
+
+        footer a:hover {
             text-decoration: underline;
         }
-        
-        .badge {
+
+        .delete-link {
             display: inline-block;
-            background: #FF6B6B;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #FF6B6B 0%, #E63946 100%);
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            margin-top: 10px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(230, 57, 70, 0.2);
         }
-        
+
+        .delete-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(230, 57, 70, 0.3);
+            text-decoration: none;
+        }
+
         @media (max-width: 768px) {
-            .header h1 {
+            header h1 {
                 font-size: 2em;
             }
-            
-            .content {
-                padding: 30px 20px;
+
+            .tabs {
+                flex-direction: column;
             }
-            
-            .document-card {
-                padding: 20px;
+
+            .tab-button {
+                min-width: 100%;
+            }
+
+            .content-section {
+                padding: 25px;
+            }
+
+            .content-section h2 {
+                font-size: 1.5em;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .tabs, footer, header {
+                display: none;
+            }
+            .content-section {
+                display: block !important;
+                box-shadow: none;
+                page-break-after: always;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header>
             <h1>🚢 CRUZR</h1>
-            <p>Connect with Solo & Single Cruisers</p>
-            <p class="llc">A Cruzr LLC Service</p>
+            <p>Find Your Match on Every Journey</p>
+            <p class="tagline">A Cruzr LLC Service</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('terms')">📜 Terms of Service</button>
+            <button class="tab-button" onclick="showTab('privacy')">🔒 Privacy Policy</button>
+            <button class="tab-button" onclick="showTab('safety')">🛡️ Safety Guidelines</button>
         </div>
-        
-        <div class="content">
-            <div class="intro">
-                <h2>Legal Documents</h2>
-                <p>Official legal documentation for Cruzr LLC. Please review these documents carefully before using our service.</p>
+
+        <!-- TERMS OF SERVICE -->
+        <div id="terms" class="content-section active">
+            <h2>Terms of Service</h2>
+            <div class="effective-date">
+                <strong>Effective Date:</strong> January 18, 2026
             </div>
+
+            <p>Welcome to <strong>Cruzr</strong> ("App," "we," "us," "our"), operated by <strong>Cruzr LLC</strong>. By downloading, accessing, or using Cruzr, you ("User," "you," "your") agree to be bound by these Terms of Service ("Terms"). If you do not agree, do not use the App.</p>
+
+            <h3>1. Acceptance of Terms</h3>
+            <p>By creating an account or using Cruzr, you acknowledge that you have read, understood, and agree to these Terms, our Privacy Policy, and our Safety Guidelines.</p>
+
+            <h3>2. Eligibility</h3>
+            <p>You must be at least <strong>18 years old</strong> to use Cruzr. By using the App, you represent and warrant that you are of legal age and have the legal capacity to enter into these Terms.</p>
+
+            <h3>3. Account Registration</h3>
+            <p>You agree to:</p>
+            <ul>
+                <li>Provide accurate, current, and complete information during registration</li>
+                <li>Maintain the security of your account credentials</li>
+                <li>Notify us immediately of any unauthorized use of your account</li>
+                <li>Accept responsibility for all activities under your account</li>
+            </ul>
+
+            <h3>4. Description of Service</h3>
+            <p>Cruzr is a <strong>cruise-specific dating and social networking application</strong> that helps users connect with other travelers on the same cruise voyage. Key features include:</p>
+            <ul>
+                <li>Matching with other passengers on your cruise</li>
+                <li>Chat and messaging functionality</li>
+                <li>Profile creation and photo sharing</li>
+                <li>Trip selection and verification</li>
+            </ul>
+
+            <h3>5. No Background Checks</h3>
+            <p><strong>IMPORTANT:</strong> Cruzr LLC <strong>does NOT conduct criminal background checks</strong> or verify the identity, criminal history, or credentials of users. We make <strong>no representations or warranties</strong> regarding the conduct, safety, or suitability of any user.</p>
+
+            <h3>6. Use at Your Own Risk</h3>
+            <p>You acknowledge and agree that:</p>
+            <ul>
+                <li>All interactions with other users are <strong>at your own risk</strong></li>
+                <li>Cruzr LLC is <strong>not responsible</strong> for the conduct of any user on or off the App</li>
+                <li>You should exercise caution and common sense in all interactions</li>
+                <li>You are solely responsible for your safety when meeting other users</li>
+            </ul>
+
+            <h3>7. Safety Guidelines</h3>
+            <p>You agree to review and follow our <a href="#safety" onclick="showTab('safety')">Safety Guidelines</a>. We strongly recommend:</p>
+            <ul>
+                <li>Meeting in public areas of the cruise ship</li>
+                <li>Informing a friend or family member of your plans</li>
+                <li>Not sharing cabin numbers or sensitive personal information</li>
+                <li>Trusting your instincts and reporting suspicious behavior</li>
+            </ul>
+
+            <h3>8. Prohibited Conduct</h3>
+            <p>You agree NOT to:</p>
+            <ul>
+                <li>Harass, abuse, threaten, or intimidate other users</li>
+                <li>Impersonate any person or entity</li>
+                <li>Post false, misleading, or fraudulent content</li>
+                <li>Engage in commercial activity or advertising without our consent</li>
+                <li>Transmit viruses, malware, or harmful code</li>
+                <li>Scrape, harvest, or collect user data without consent</li>
+                <li>Use the App for any illegal purpose</li>
+                <li>Violate any applicable laws or regulations</li>
+            </ul>
+
+            <h3>9. User Content and Licensing</h3>
+            <p>You retain ownership of content you post ("User Content"). By posting User Content, you grant Cruzr LLC a <strong>perpetual, irrevocable, worldwide, royalty-free, transferable, sublicensable license</strong> to use, reproduce, modify, adapt, publish, translate, distribute, and display your User Content in connection with operating and promoting the App.</p>
             
-            <div class="documents">
-                <a href="terms.html" class="document-card">
-                    <h3><span class="icon">📜</span> Terms of Service</h3>
-                    <p>Complete terms and conditions for using Cruzr, including user rights, responsibilities, arbitration agreement, and maximum liability protections for LLC.</p>
-                    <p class="date">Effective Date: January 18, 2026</p>
-                    <span class="badge">California Law</span>
-                    <span class="badge">LLC Protected</span>
-                </a>
-                
-                <a href="privacy.html" class="document-card">
-                    <h3><span class="icon">🔒</span> Privacy Policy</h3>
-                    <p>How we collect, use, share, and protect your personal information. Includes GDPR, CCPA/CPRA compliance and your privacy rights.</p>
-                    <p class="date">Effective Date: January 18, 2026</p>
-                    <span class="badge">CCPA/GDPR Compliant</span>
-                </a>
-                
-                <a href="safety.html" class="document-card">
-                    <h3><span class="icon">🛡️</span> Safety Guidelines</h3>
-                    <p>Important safety information, tips for meeting people safely, recognizing scams, and protecting yourself while using Cruzr.</p>
-                    <p class="date">Last Updated: January 18, 2026</p>
-                    <span class="badge">User Safety</span>
-                </a>
+            <p><strong>Photo Rights:</strong> By uploading photos to Cruzr, you confirm that you own all rights to the images or have obtained necessary permissions, and you grant us the right to display, store, and use these photos as described above.</p>
+
+            <h3>10. Content Moderation</h3>
+            <p>Cruzr LLC reserves the right (but has no obligation) to:</p>
+            <ul>
+                <li>Monitor, review, and remove User Content</li>
+                <li>Suspend or terminate accounts that violate these Terms</li>
+                <li>Cooperate with law enforcement investigations</li>
+                <li>Take any action we deem necessary to protect users or comply with legal obligations</li>
+            </ul>
+
+            <h3>11. Reporting and Blocking</h3>
+            <p>If you encounter inappropriate behavior or content, you can:</p>
+            <ul>
+                <li>Block users directly within the App</li>
+                <li>Report users or content to our moderation team</li>
+                <li>Contact cruise ship security or law enforcement for serious concerns</li>
+            </ul>
+            <p>We will review reports promptly and take appropriate action.</p>
+
+            <h3>12. Payment Terms</h3>
+            <p>Certain features of Cruzr may require payment ("Premium Features"). By purchasing Premium Features:</p>
+            <ul>
+                <li>You authorize us to charge your selected payment method</li>
+                <li>All fees are in U.S. dollars unless otherwise stated</li>
+                <li>Subscriptions auto-renew unless canceled</li>
+                <li>You can cancel subscriptions through your device's app store settings</li>
+            </ul>
+
+            <h3>13. Refund Policy</h3>
+            <p>All purchases are <strong>final and non-refundable</strong> except as required by law. Refund requests should be directed to:</p>
+            <ul>
+                <li><strong>Apple App Store:</strong> Through your Apple ID account</li>
+                <li><strong>Google Play Store:</strong> Through your Google Play account</li>
+                <li><strong>Direct support:</strong> <a href="mailto:cruzrapp@outlook.com">cruzrapp@outlook.com</a></li>
+            </ul>
+
+            <h3>14. Intellectual Property</h3>
+            <p>The Cruzr App, including its design, features, graphics, logos, and source code, is the exclusive property of <strong>Cruzr LLC</strong> and is protected by U.S. and international copyright, trademark, and intellectual property laws. You may not:</p>
+            <ul>
+                <li>Copy, modify, or distribute any part of the App</li>
+                <li>Reverse engineer or decompile the App</li>
+                <li>Use our trademarks without written permission</li>
+                <li>Create derivative works based on the App</li>
+            </ul>
+
+            <h3>15. Third-Party Services</h3>
+            <p>Cruzr may integrate with third-party services (e.g., payment processors, analytics providers). Your use of these services is governed by their respective terms and privacy policies. We are not responsible for third-party services.</p>
+
+            <h3>16. No Affiliation with Cruise Lines</h3>
+            <p><strong>IMPORTANT:</strong> Cruzr LLC is <strong>not affiliated with, endorsed by, or sponsored by</strong> any cruise line, cruise company, or travel operator. We are an independent third-party application. Cruise lines do not endorse, monitor, or have any responsibility for the App or user interactions.</p>
+
+            <h3>17. Disclaimer of Warranties</h3>
+            <p>THE APP IS PROVIDED <strong>"AS IS"</strong> AND <strong>"AS AVAILABLE"</strong> WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:</p>
+            <ul>
+                <li>Warranties of merchantability, fitness for a particular purpose, or non-infringement</li>
+                <li>Warranties that the App will be uninterrupted, secure, or error-free</li>
+                <li>Warranties regarding the accuracy, reliability, or quality of any content or matches</li>
+                <li>Warranties regarding user conduct or safety</li>
+            </ul>
+
+            <h3>18. Limitation of Liability</h3>
+            <p><strong>MAXIMUM LIABILITY CAP:</strong> TO THE FULLEST EXTENT PERMITTED BY LAW, CRUZR LLC'S TOTAL LIABILITY FOR ANY CLAIMS ARISING FROM YOUR USE OF THE APP SHALL NOT EXCEED <strong>ONE HUNDRED DOLLARS ($100.00)</strong> OR THE AMOUNT YOU PAID TO US IN THE PAST TWELVE (12) MONTHS, WHICHEVER IS LESS.</p>
+            
+            <p>CRUZR LLC, ITS OFFICERS, DIRECTORS, EMPLOYEES, AND AFFILIATES SHALL NOT BE LIABLE FOR:</p>
+            <ul>
+                <li>Any indirect, incidental, special, consequential, or punitive damages</li>
+                <li>Loss of profits, revenue, data, or goodwill</li>
+                <li>Personal injury, emotional distress, or property damage</li>
+                <li>Any conduct or actions of other users</li>
+                <li>Any interactions or meetings with other users</li>
+                <li>Any content posted by users</li>
+            </ul>
+
+            <h3>19. Indemnification</h3>
+            <p>You agree to <strong>indemnify, defend, and hold harmless</strong> Cruzr LLC, its officers, directors, employees, agents, and affiliates from and against any claims, liabilities, damages, losses, costs, or expenses (including reasonable attorneys' fees) arising from:</p>
+            <ul>
+                <li>Your use of the App</li>
+                <li>Your violation of these Terms</li>
+                <li>Your violation of any rights of another person or entity</li>
+                <li>Your User Content</li>
+                <li>Your interactions with other users</li>
+            </ul>
+
+            <h3>20. Termination</h3>
+            <p>We reserve the right to suspend or terminate your account at any time, with or without notice, for any reason, including but not limited to:</p>
+            <ul>
+                <li>Violation of these Terms</li>
+                <li>Fraudulent or illegal activity</li>
+                <li>Abusive or harassing behavior</li>
+                <li>Extended periods of inactivity</li>
+            </ul>
+            <p>You may delete your account at any time through the App settings or by contacting <a href="mailto:cruzrapp@outlook.com">cruzrapp@outlook.com</a>.</p>
+            
+            <p><strong>Effect of Termination:</strong> Upon termination, your right to use the App ceases immediately. Sections 9, 11, 17, 18, 19, 21, and 22 survive termination.</p>
+
+            <h3>21. Dispute Resolution and Arbitration</h3>
+            <p><strong>PLEASE READ THIS SECTION CAREFULLY. IT AFFECTS YOUR LEGAL RIGHTS.</strong></p>
+            
+            <p><strong>Informal Resolution:</strong> Before filing any legal claim, you agree to first contact us at <a href="mailto:cruzrapp@outlook.com">cruzrapp@outlook.com</a> and attempt to resolve the dispute informally for at least 30 days.</p>
+            
+            <p><strong>Binding Arbitration:</strong> If informal resolution fails, you and Cruzr LLC agree that any dispute, claim, or controversy arising out of or relating to these Terms or the App shall be resolved through <strong>binding arbitration</strong> administered by the American Arbitration Association (AAA) under its Consumer Arbitration Rules.</p>
+            
+            <p><strong>Arbitration Terms:</strong></p>
+            <ul>
+                <li>The arbitration shall be conducted in <strong>California</strong></li>
+                <li>The arbitrator's decision is final and binding</li>
+                <li>Judgment on the award may be entered in any court of competent jurisdiction</li>
+                <li>Each party shall bear its own costs and attorneys' fees unless otherwise awarded by the arbitrator</li>
+            </ul>
+            
+            <p><strong>Class Action Waiver:</strong> YOU AND CRUZR LLC AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING.</p>
+            
+            <p><strong>Exceptions:</strong> Either party may seek injunctive or equitable relief in any court of competent jurisdiction to protect intellectual property rights or confidential information.</p>
+            
+            <p><strong>Survival:</strong> This arbitration agreement survives termination of these Terms and remains in effect even if Cruzr LLC dissolves or ceases operations.</p>
+
+            <h3>22. Governing Law and Jurisdiction</h3>
+            <p>These Terms shall be governed by and construed in accordance with the laws of the <strong>State of California, United States</strong>, without regard to its conflict of law principles.</p>
+            
+            <p>To the extent arbitration does not apply, you agree to submit to the <strong>exclusive jurisdiction</strong> of the state and federal courts located in <strong>California</strong> for the resolution of any disputes.</p>
+
+            <h3>23. LLC Protection and Dissolution</h3>
+            <p><strong>Limited Liability:</strong> Cruzr LLC is a limited liability company organized under California law. The personal assets of Cruzr LLC's members, managers, officers, and employees are protected from any claims, liabilities, or debts of the company.</p>
+            
+            <p><strong>Dissolution or Bankruptcy:</strong> In the event Cruzr LLC dissolves, files for bankruptcy, or ceases operations, your sole recourse shall be against the assets of Cruzr LLC. You expressly waive any right to pursue claims against the personal assets of any individual associated with Cruzr LLC.</p>
+            
+            <p><strong>Survival of Key Provisions:</strong> Even if Cruzr LLC ceases operations, the following provisions survive indefinitely: Sections 9 (User Content Licensing), 17 (Disclaimer of Warranties), 18 (Limitation of Liability), 19 (Indemnification), 21 (Arbitration), and 22 (Governing Law).</p>
+
+            <h3>24. Changes to Terms</h3>
+            <p>We reserve the right to modify these Terms at any time. We will notify you of material changes by:</p>
+            <ul>
+                <li>Posting the updated Terms in the App</li>
+                <li>Updating the "Effective Date" at the top of this document</li>
+                <li>Sending an email notification (if you have provided an email address)</li>
+            </ul>
+            <p>Your continued use of the App after changes become effective constitutes acceptance of the new Terms.</p>
+
+            <h3>25. Severability</h3>
+            <p>If any provision of these Terms is found to be invalid, illegal, or unenforceable, the remaining provisions shall continue in full force and effect.</p>
+
+            <h3>26. Entire Agreement</h3>
+            <p>These Terms, together with our Privacy Policy and Safety Guidelines, constitute the entire agreement between you and Cruzr LLC regarding the App and supersede all prior agreements and understandings.</p>
+
+            <h3>27. Contact Information</h3>
+            <p>If you have questions, concerns, or complaints about these Terms, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:cruzrapp@outlook.com">cruzrapp@outlook.com</a></li>
+                <li><strong>Legal Page:</strong> <a href="https://danadolly.github.io/cruzr-legal/">https://danadolly.github.io/cruzr-legal/</a></li>
+            </ul>
+
+            <p><strong>By using Cruzr, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</strong></p>
+        </div>
+
+        <!-- PRIVACY POLICY -->
+        <div id="privacy" class="content-section">
+            <h2>Privacy Policy</h2>
+            <div class="effective-date">
+                <strong>Effective Date:</strong> January 18, 2026
             </div>
+
+            <p>Welcome to <strong>Cruzr</strong>, operated by <strong>Cruzr LLC</strong> ("we," "us," "our"). Your privacy is important to us. This Privacy Policy explains how we collect, use, disclose, and protect your personal information when you use our mobile application ("App").</p>
+
+            <h3>1. Information We Collect</h3>
+            
+            <h4>1.1 Information You Provide</h4>
+            <ul>
+                <li><strong>Account Information:</strong> Email address, name, age, gender, profile photos</li>
+                <li><strong>Profile Information:</strong> Bio, interests, preferences, cruise trip details</li>
+                <li><strong>User Content:</strong> Photos, messages, and other content you post</li>
+                <li><strong>Trip Selection:</strong> Cruise line, ship name, departure date, itinerary</li>
+                <li><strong>Payment Information:</strong> Processed by third-party payment providers (we do not store full credit card numbers)</li>
+            </ul>
+
+            <h4>1.2 Information Collected Automatically</h4>
+            <ul>
+                <li><strong>Device Information:</strong> Device type, operating system, unique device identifiers</li>
+                <li><strong>Usage Data:</strong> App interactions, features used, time spent, crash logs</li>
+                <li><strong>Location Data:</strong> Approximate location (city/region level only, not precise GPS)</li>
+                <li><strong>Cookies and Similar Technologies:</strong> To maintain sessions and improve user experience</li>
+            </ul>
+
+            <h4>1.3 Information from Third Parties</h4>
+            <ul>
+                <li><strong>Social Media:</strong> If you sign up using social media accounts (optional), we may receive basic profile information</li>
+                <li><strong>Analytics Providers:</strong> We use Google Firebase Analytics and other analytics tools</li>
+            </ul>
+
+            <h3>2. How We Use Your Information</h3>
+            <p>We use your information to:</p>
+            <ul>
+                <li><strong>Provide and improve the App:</strong> Matching algorithms, chat functionality, profile display</li>
+                <li><strong>Personalize your experience:</strong> Suggesting matches based on cruise trips and preferences</li>
+                <li><strong>Communicate with you:</strong> Notifications, updates, customer support</li>
+                <li><strong>Process payments:</strong> For premium features and subscriptions</li>
+                <li><strong>Ensure safety and security:</strong> Fraud prevention, abuse detection, compliance with laws</li>
+                <li><strong>Analytics and research:</strong> Understand usage patterns and improve features</li>
+                <li><strong>Legal compliance:</strong> Respond to legal requests, enforce our Terms of Service</li>
+            </ul>
+
+            <h3>3. Legal Basis for Processing (GDPR)</h3>
+            <p>If you are located in the European Economic Area (EEA), UK, or Switzerland, we process your personal data based on the following legal grounds:</p>
+            <ul>
+                <li><strong>Consent:</strong> You have given explicit consent for specific processing activities</li>
+                <li><strong>Contract Performance:</strong> Processing is necessary to perform our contract with you (providing the App)</li>
+                <li><strong>Legitimate Interests:</strong> We have a legitimate interest in improving the App, preventing fraud, and ensuring security</li>
+                <li><strong>Legal Obligation:</strong> We must comply with applicable laws and regulations</li>
+            </ul>
+
+            <h3>4. How We Share Your Information</h3>
+            <p><strong>We DO NOT sell your personal information.</strong> We may share your information in the following circumstances:</p>
+            
+            <h4>4.1 With Other Users</h4>
+            <ul>
+                <li>Your profile (name, age, photos, bio) is visible to other users on the same cruise</li>
+                <li>Your messages are shared with the users you communicate with</li>
+            </ul>
+
+            <h4>4.2 With Service Providers</h4>
+            <ul>
+                <li><strong>Google Firebase:</strong> Cloud hosting, analytics, authentication</li>
+                <li><strong>Payment Processors:</strong> Apple App Store, Google Play Store for in-app purchases</li>
+                <li><strong>Analytics Tools:</strong> Google Analytics, Firebase Analytics</li>
+                <li><strong>Cloud Storage:</strong> For photos and user content</li>
+            </ul>
+
+            <h4>4.3 For Legal Reasons</h4>
+            <p>We may disclose your information if required by law, legal process, or government request, or to:</p>
+            <ul>
+                <li>Enforce our Terms of Service</li>
+                <li>Protect the rights, property, or safety of Cruzr LLC, users, or the public</li>
+                <li>Prevent fraud or illegal activity</li>
+                <li>Cooperate with law enforcement investigations</li>
+            </ul>
+
+            <h4>4.4 Business Transfers</h4>
+            <p>If Cruzr LLC is involved in a merger, acquisition, bankruptcy, or sale of assets, your information may be transferred as part of that transaction.</p>
+
+            <h3>5. Your Privacy Rights</h3>
+            
+            <h4>5.1 Access and Correction</h4>
+            <p>You have the right to:</p>
+            <ul>
+                <li>Access the personal information we hold about you</li>
+                <li>Correct inaccurate or incomplete information</li>
+                <li>Update your profile at any time through the App settings</li>
+            </ul>
+
+            <h4>5.2 Data Portability</h4>
+            <p>You can request a copy of your personal data in a structured, commonly used, and machine-readable format.</p>
+
+            <h4>5.3 Deletion</h4>
+            <p>You can request deletion of your account and personal information. To delete your account:</p>
+            <ul>
+                <li>Go to <strong>App Settings → Account → Delete Account</strong></li>
+                <li>Or email us at <a href="mailto:cruzrapp@outlook.com">cruzrapp@outlook.com</a></li>
+                <li>Visit our <a href="delete-account.html">account deletion page</a></li>
+            </ul>
+            <p><strong>Note:</strong> We may retain certain information as required by law or for legitimate business purposes (e.g., fraud prevention, legal disputes).</p>
+
+            <h4>5.4 Opt-Out of Marketing</h4>
+            <p>You can opt out of promotional emails by:</p>
+            <ul>
+                <li>Clicking "Unsubscribe" in any marketing email</li>
+                <li>Adjusting notification settings in the App</li>
+            </ul>
+
+            <h4>5.5 Withdraw Consent</h4>
+            <p>If we process your data based on consent, you have the right to withdraw consent at any time by contacting us at <a href="mailto:cruzrapp@outlook.com">cruzrapp@outlook.com</a>.</p>
+
+            <h3>6. Children's Privacy (COPPA Compliance)</h3>
+            <p>Cruzr is <strong>not intended for users under 18 years of age</strong>. We do not knowingly collect personal information from children under 18. If we discover that a child under 18 has provided us with personal information, we will delete it immediately.</p>
+            
+            <p>If you believe a child under 18 has created an account, please contact us at <a href="mailto:cruzrapp@outlook.com">cruzrapp@outlook.com</a>.</p>
+
+            <h3>7. Data Retention</h3>
+            <p>We retain your personal information for as long as your account is active or as needed to provide the App. When you delete your account, we will delete or de-identify your data within <strong>90 days</strong>, except where:</p>
+            <ul>
+                <li>Required by law (e.g., tax records, legal disputes)</li>
+                <li>Necessary for fraud prevention or safety investigations</li>
+                <li>Anonymized data used for analytics (which cannot identify you)</li>
+            </ul>
+
+            <h3>8. Data Security</h3>
+            <p>We implement reasonable security measures to protect your information, including:</p>
+            <ul>
+                <li>Encryption of data in transit (HTTPS/TLS)</li>
+                <li>Secure cloud storage with access controls</li>
+                <li>Regular security audits and updates</li>
+            </ul>
+            <p><strong>However, no system is 100% secure.</strong> We cannot guarantee absolute security, and you use the App at your own risk.</p>
+
+            <h3>9. Third-Party Services</h3>
+            <p>The App may contain links to third-party websites or integrate with third-party services (e.g., payment processors, social media). We are not responsible for the privacy practices of these third parties. Please review their privacy policies.</p>
+            
+            <p><strong>Third-Party Services We Use:</strong></p>
+            <ul>
+                <li><strong>Google Firebase:</strong> <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy Policy</a></li>
+                <li><strong>Apple App Store:</strong> <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple Privacy Policy</a></li>
+                <li><strong>Google Play Store:</strong> <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+            </ul>
+
+            <h3>10. Cookies and Tracking Technologies</h3>
+            <p>We use cookies and similar technologies (e.g., local storage, session tokens) to:</p>
+            <ul>
+                <li>Maintain your login session</li>
+                <li>Remember your preferences</li>
+                <li>Analyze usage patterns</li>
+                <li>Improve App performance</li>
+            </ul>
+            <p>You can manage cookie preferences through your device settings. Note that disabling cookies may limit certain App features.</p>
+
+            <h3>11. International Data Transfers</h3>
+            <p>Cruzr LLC is based in the <strong>United States</strong>. If you access the App from outside the U.S., your information may be transferred to, stored, and processed in the U.S. or other countries.</p>
+            
+            <p><strong>For EEA/UK/Swiss Users:</strong> We rely on appropriate safeguards (e.g., Standard Contractual Clauses) to protect your data when transferred internationally.</p>
+
+            <h3>12. California Privacy Rights (CCPA/CPRA)</h3>
+            <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA):</p>
+            
+            <h4>12.1 Right to Know</h4>
+            <p>You can request information about:</p>
+            <ul>
+                <li>Categories of personal information we collect</li>
+                <li>Purposes for which we use your information</li>
+                <li>Categories of third parties we share information with</li>
+                <li>Specific pieces of personal information we hold about you</li>
+            </ul>
+
+            <h4>12.2 Right to Delete</h4>
+            <p>You can request deletion of your personal information, subject to certain exceptions (e.g., legal obligations, fraud prevention).</p>
+
+            <h4>12.3 Right to Opt-Out of Sale or Sharing</h4>
+            <p><strong>We DO NOT sell or share your personal information for monetary consideration.</strong> We do not engage in activities that would require a "Do Not Sell My Personal Information" link under CCPA.</p>
+
+            <h4>12.4 Right to Correct</h4>
+            <p>You can request correction of inaccurate personal information.</p>
+
+            <h4>12.5 Right to Limit Use of Sensitive Personal Information</h4>
+            <p>We do not use sensitive personal information in ways that would trigger this right.</p>
+
+            <h4>12.6 Non-Discrimination</h4>
+            <p>We will not discriminate against you for exercising your CCPA/CPRA rights.</p>
+
+            <h4>12.7 How to Exercise Your Rights</h4>
+            <p>To exercise any of these rights, contact us at <a href="mailto:cruzrapp@outlook.com">cruzrapp@outlook.com</a> or visit our <a href="delete-account.html">account deletion page</a>. We will respond within 45 days.</p>
+
+            <h3>13. Other U.S. State Privacy Rights</h3>
+            <p>Residents of Virginia (VCDPA), Colorado (CPA), Connecticut (CTDPA), and Utah (UCPA) have similar rights to California residents. Contact us at <a href="mailto:cruzrapp@outlook.com">cruzrapp@outlook.com</a> to exercise these rights.</p>
+
+            <h3>14. Changes to This Privacy Policy</h3>
+            <p>We may update this Privacy Policy from time to time. We will notify you of material changes by:</p>
+            <ul>
+                <li>Posting the updated Privacy Policy in the App</li>
+                <li>Updating the "Effective Date" at the top of this document</li>
+                <li>Sending an email notification (if you have provided an email address)</li>
+            </ul>
+            <p>Your continued use of the App after changes become effective constitutes acceptance of the updated Privacy Policy.</p>
+
+            <h3>15. Contact Us</h3>
+            <p>If you have questions, concerns, or requests regarding this Privacy Policy or your personal information, please contact us:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:cruzrapp@outlook.com">cruzrapp@outlook.com</a></li>
+                <li><strong>Legal Page:</strong> <a href="https://danadolly.github.io/cruzr-legal/">https://danadolly.github.io/cruzr-legal/</a></li>
+                <li><strong>Delete Account:</strong> <a href="delete-account.html">Account Deletion Page</a></li>
+            </ul>
+
+            <p><strong>By using Cruzr, you acknowledge that you have read and understood this Privacy Policy.</strong></p>
         </div>
-        
-        <div class="footer">
-            <p><strong>Questions or Concerns?</strong></p>
-            <p>Contact us at <a href="/cdn-cgi/l/email-protection#a3c0d1d6d9d1c2d3d3e3ccd6d7cfccccc88dc0ccce"><span class="__cf_email__" data-cfemail="284b5a5d525a49585868475d5c44474743064b4745">[email&#160;protected]</span></a></p>
-            <p style="margin-top: 30px; color: #999; font-size: 0.9em;">&copy; 2026 Cruzr LLC. All rights reserved.</p>
+
+        <!-- SAFETY GUIDELINES -->
+        <div id="safety" class="content-section">
+            <h2>Safety Guidelines</h2>
+            <div class="effective-date">
+                <strong>Last Updated:</strong> January 18, 2026
+            </div>
+
+            <p>Your safety is our top priority. Cruzr connects you with other travelers on your cruise, but we want to ensure you have a safe and positive experience. Please read these safety guidelines carefully.</p>
+
+            <h3>⚠️ Important Safety Notice</h3>
+            <p><strong>Cruzr LLC does NOT conduct criminal background checks or verify the identity of users.</strong> We make no representations or warranties about the conduct, safety, or suitability of any user. All interactions are at your own risk.</p>
+
+            <h3>🛡️ General Safety Tips</h3>
+
+            <h4>1. Meet in Public Places</h4>
+            <ul>
+                <li>Always meet in public areas of the cruise ship (e.g., restaurants, bars, pool deck)</li>
+                <li>Avoid meeting in private cabins, especially on first meetings</li>
+                <li>Choose well-lit, populated areas</li>
+            </ul>
+
+            <h4>2. Tell Someone Your Plans</h4>
+            <ul>
+                <li>Inform a friend or family member when and where you're meeting someone</li>
+                <li>Share the person's profile or name</li>
+                <li>Check in with someone during or after your meeting</li>
+            </ul>
+
+            <h4>3. Keep Personal Information Private</h4>
+            <ul>
+                <li>Do not share your cabin number until you feel comfortable</li>
+                <li>Avoid sharing financial information (bank accounts, credit cards)</li>
+                <li>Be cautious about sharing your home address or workplace</li>
+                <li>Do not share sensitive personal details too quickly</li>
+            </ul>
+
+            <h4>4. Trust Your Instincts</h4>
+            <ul>
+                <li>If something feels wrong, trust your gut and leave</li>
+                <li>You are never obligated to continue a conversation or meeting</li>
+                <li>Don't feel pressured to do anything you're uncomfortable with</li>
+            </ul>
+
+            <h4>5. Stay Sober and Alert</h4>
+            <ul>
+                <li>Avoid excessive alcohol consumption when meeting someone new</li>
+                <li>Never leave your drink unattended</li>
+                <li>Be aware of your surroundings at all times</li>
+            </ul>
+
+            <h4>6. Do Not Send Money</h4>
+            <ul>
+                <li>Never send money to someone you've only met online</li>
+                <li>Be wary of sob stories or urgent financial requests</li>
+                <li>Report any users who ask for money</li>
+            </ul>
+
+            <h3>🚨 How to Report Issues</h3>
+
+            <h4>Within the App</h4>
+            <ul>
+                <li><strong>Block a user:</strong> Go to their profile → Select "Block User"</li>
+                <li><strong>Report a user:</strong> Go to their profile → Select "Report User" → Choose a reason</li>
+                <li>We review all reports promptly and take appropriate action</li>
+            </ul>
+
+            <h4>On the Cruise Ship</h4>
+            <ul>
+                <li><strong>Contact cruise ship security</strong> if you feel unsafe or threatened</li>
+                <li>Cruise lines have security personnel available 24/7</li>
+                <li>Do not hesitate to ask for help from crew members</li>
+            </ul>
+
+            <h4>Emergency Situations</h4>
+            <ul>
+                <li>If you are in immediate danger, contact <strong>cruise ship security</strong> or dial the ship's emergency number</li>
+                <li>If the ship is in port, contact local law enforcement (911 in the U.S., or local equivalent)</li>
+                <li>Report serious incidents to us at <a href="mailto:cruzrapp@outlook.com">cruzrapp@outlook.com</a></li>
+            </ul>
+
+            <h3>🔍 Recognizing Red Flags</h3>
+            <p>Be cautious if someone:</p>
+            <ul>
+                <li>Asks for money or financial assistance</li>
+                <li>Pressures you to leave public areas or meet in private</li>
+                <li>Refuses to meet in person despite being on the same cruise</li>
+                <li>Provides inconsistent or vague information about themselves</li>
+                <li>Becomes aggressive, hostile, or overly persistent</li>
+                <li>Shares explicit or inappropriate content without consent</li>
+                <li>Attempts to move conversations off the App too quickly</li>
+            </ul>
+
+            <h3>📸 Photo and Content Safety</h3>
+            <ul>
+                <li>Only share photos you're comfortable with others seeing</li>
+                <li>Be mindful that screenshots can be taken</li>
+                <li>Report any inappropriate or explicit photos</li>
+                <li>Do not share intimate or compromising photos</li>
+            </ul>
+
+            <h3>🌐 Online Safety</h3>
+            <ul>
+                <li>Do not share your social media profiles unless you feel comfortable</li>
+                <li>Be cautious about clicking links sent by other users</li>
+                <li>Use strong, unique passwords for your Cruzr account</li>
+                <li>Enable two-factor authentication if available</li>
+            </ul>
+
+            <h3>🚢 Cruise-Specific Safety</h3>
+            <ul>
+                <li>Familiarize yourself with the ship's layout and emergency exits</li>
+                <li>Keep your cabin locked at all times</li>
+                <li>Use the ship's safe for valuables</li>
+                <li>Be aware of the ship's code of conduct and policies</li>
+            </ul>
+
+            <h3>📞 Resources and Support</h3>
+
+            <h4>Cruzr Support</h4>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:cruzrapp@outlook.com">cruzrapp@outlook.com</a></li>
+                <li><strong>Legal Page:</strong> <a href="https://danadolly.github.io/cruzr-legal/">https://danadolly.github.io/cruzr-legal/</a></li>
+            </ul>
+
+            <h4>Emergency Contacts</h4>
+            <ul>
+                <li><strong>U.S. Emergency Services:</strong> 911</li>
+                <li><strong>International Emergency:</strong> Check local emergency numbers when in port</li>
+                <li><strong>Cruise Ship Security:</strong> Contact the ship's front desk or security office</li>
+            </ul>
+
+            <h4>Additional Resources</h4>
+            <ul>
+                <li><strong>National Domestic Violence Hotline:</strong> 1-800-799-7233 (U.S.)</li>
+                <li><strong>RAINN (Sexual Assault Hotline):</strong> 1-800-656-4673 (U.S.)</li>
+                <li><strong>FBI Internet Crime Complaint Center:</strong> <a href="https://www.ic3.gov" target="_blank">ic3.gov</a></li>
+            </ul>
+
+            <h3>✅ Final Reminders</h3>
+            <ul>
+                <li>Cruzr is designed to help you connect with fellow travelers in a fun and safe way</li>
+                <li>Always prioritize your safety and well-being</li>
+                <li>Report any suspicious activity or behavior</li>
+                <li>We are committed to maintaining a safe and respectful community</li>
+            </ul>
+
+            <p><strong>By using Cruzr, you acknowledge that you have read and understood these Safety Guidelines and agree to follow them.</strong></p>
+
+            <p>If you have any questions or concerns, please contact us at <a href="mailto:cruzrapp@outlook.com">cruzrapp@outlook.com</a>.</p>
         </div>
+
+        <footer>
+            <p><strong>Contact:</strong> <a href="mailto:cruzrapp@outlook.com">cruzrapp@outlook.com</a></p>
+            <p>&copy; 2026 Cruzr LLC. All rights reserved.</p>
+            <a href="delete-account.html" class="delete-link">🗑️ Delete Your Account</a>
+        </footer>
     </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all content sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show selected section
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+
+            // Update URL hash without scrolling
+            history.pushState(null, null, '#' + tabName);
+        }
+
+        // Handle direct links to sections (e.g., #terms, #privacy)
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && ['terms', 'privacy', 'safety'].includes(hash)) {
+                showTab(hash);
+                // Update button state
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.textContent.toLowerCase().includes(hash)) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', () => {
+            const hash = window.location.hash.substring(1) || 'terms';
+            if (['terms', 'privacy', 'safety'].includes(hash)) {
+                document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+                document.getElementById(hash).classList.add('active');
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.textContent.toLowerCase().includes(hash)) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
 </html>
